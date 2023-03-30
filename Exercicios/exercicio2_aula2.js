@@ -1,4 +1,6 @@
 // Multiplicação de matrizes
+// Aluno: Davi Hugo Sateles Felinto
+// Matrícula: UC21105738
 
 const A = [[1,2],[3,4]]
 const B = [[1,2],[3,4]]
