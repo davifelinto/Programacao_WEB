@@ -1,23 +1,33 @@
-// Imprimir matriz e transposta
-const A = [[1,2],[3,4],[5,6]]
-const At = new Array(A[0].length)
+// Multiplicação de matrizes
+// Aluno: Davi Hugo Sateles Felinto
+// Matrícula: UC21105738
 
-// Imprimir a matriz A
-console.log("Matriz A:");
-for (let i = 0; i < A.length; i++) {
-  console.log(A[i]);
-}
+const A = [[1,2],[3,4]]
+const B = [[1,2],[3,4]]
 
-// Calcular a matriz transposta de A
-for (let i = 0; i < At.length; i++) {
-  At[i] = new Array(A.length);
-  for (let j = 0; j < A.length; j++) {
-    At[i][j] = A[j][i];
+const linhasA = A.length
+const colunasA = A[0].length
+const linhasB = B.length
+const colunasB = B[0].length
+
+if (colunasA == linhasB) {
+  const C = new Array(linhasA)
+  for (let i = 0; i < linhasA; i++) {
+    C[i] = new Array(colunasB).fill(0)
   }
-}
+  
+  for (let i = 0; i < linhasA; i++) {
+    for (let j = 0; j < colunasB; j++) {
+      for (let k = 0; k < colunasA; k++) {
+        C[i][j] += A[i][k] * B[k][j]
+      }
+    }
+  }
 
-// Imprimir a matriz transposta de A
-console.log("Matriz A^t:");
-for (let i = 0; i < At.length; i++) {
-  console.log(At[i]);
+  console.log("AxB=C:")
+  for (let i = 0; i < linhasA; i++) {
+    console.log(C[i])
+  }
+} else {
+  console.log("As matrizes não podem ser multiplicadas.")
 }
