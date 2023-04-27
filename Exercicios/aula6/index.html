@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Aula 6</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  
+  <body>
+    <div class="container-fluid p-5 bg-dark text-white text-center">
+      <h1>Minha Página Boorstrap</h1>
+      <p>Redimensione a janela do navegador e veja o efeito responsivo!</p>
+    </div>
+
+    <!-- TABELAS -->
+    <table class="table table-striped table-bordered table-hover table-dark">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jhon</td>
+          <td>Doe</td>
+          <td>jhon@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ALERTAS -->
+    <div class="alert alert-success">
+        <b>Alerta de sucesso!</b>
+    </div>
+    <div class="alert alert-info">
+        <b>Alerta de info!</b>
+    </div>
+    <div class="alert alert-warning">
+        <b>Alerta de aviso!</b>
+    </div>
+    <div class="alert alert-danger">
+        <b>Alerta de perigo!</b>
+    </div>
+    <div class="alert alert-primary">
+        <b>Alerta primario!</b>
+    </div>
+    <div class="alert alert-secondary">
+        <b>Alerta secundario!</b>
+    </div>
+    <div class="alert alert-light">
+        <b>Alerta claro!</b>
+    </div>
+    <div class="alert alert-dark">
+        <b>Alerta escuro!</b>
+    </div>
+
+    <div class="container">
+        <form action="meu_app/guarda_nome">
+            </br>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome">
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text" id="sobrenome" name="sobrenome">
+            <input type="submit" value="Enviar">
+            </br>
+            <label for="D&D">D&D</label>
+            <input type="checkbox" id="D&D" name="D&D">
+            <label for="Tormenta">Tormenta</label>
+            <input type="checkbox" id="Tormenta" name="Tormenta">
+            <input type="submit" value="Enviar">
+            </br>
+            <label for="Paladino">Paladino</label>
+            <input type="radio" id="Paladino" name="Paladino">
+            <label for="Mago">Mago</label>
+            <input type="radio" id="Mago" name="Mago">
+            <input type="submit" value="Enviar">
+            </br>
+            <select>
+                <option></option>
+                <option></option>
+                <option></option>
+            </select>
+        </form>
+    </div>
+
+  </body>
+</html>
