@@ -1,3 +1,8 @@
+<!--
+    Aluno: Davi Hugo Sateles Felinto
+    Matrícula: UC21105738
+-->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -8,45 +13,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
 
-    <!-- Desafio - Crie um formulário para marcação de consulta.
-    O formulário deve ter uma seção de dados pessoais, contendo:
-    nome completo, CPF, data de nascimento, endereço, UF, CEP, e-mail
-    e telefone.
-    O formulário deve ter uma seção de dados da consulta, contendo:
-    seleção da especialidade médica (ex. Cardiologia, dermatologia),
-    data e hora, seleção de medicamentos alérgicos (ex. Antibióticos,
-    Anti-inflamatórios) e campo de informações adicionais (múltiplas
-    linhas).
-    Use os tipos adequados para cada entrada solicitada.
-    Use o sistema de GRID do BootStrap 5 para organizar a página. -->
-
-    <!-- https://getbootstrap.com/docs/5.0/forms/layout/#forms -->
-    <!-- Restringindo padrões de input: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text#specifying_a_pattern -->
   <body>
     <div class="container mt-5">
         <h3>Preencha o formulário a seguir</h3>
         <form class="row g-3">
+            <!-- Formulario de dados pessoais -->
             <h5 class="mt-5">Dados pessoas</h5>
             <div class="col-md-6">
                 <label for="name">Nome completo:</label>
                 <input type="text" class="form-control" id="name" placeholder="Digite o nome" name="name">
             </div>
+
             <div class="col-md-2">
                 <label for="cpf">CPF:</label>
                 <input type="number" class="form-control" id="cpf" placeholder="Digite o cpf" name="cpf">
             </div>
+
             <div class="col-md-4">
                 <label for="birth">Data de nascimento:</label>
                 <input type="date" class="form-control" id="birth" placeholder="Digite a data de nascimento" name="birth">
             </div>
+
             <div class="col-md-4">
                 <label for="cep">CEP:</label>
                 <input type="number" class="form-control" id="cep" placeholder="Digite o CEP" name="cep">
             </div>
+
             <div class="col-md-4">
                 <label for="endereco">Endereço:</label>
                 <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço" name="endereco">
             </div>
+
             <div class="col-md-4">
                 <label for="uf" class="form-label">UF:</label>
                 <select id="uf" class="form-select">
@@ -85,29 +82,34 @@
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" placeholder="Digite o email" name="email">
             </div>
+
             <div class="col-md-6">
                 <label for="tel">Telefone:</label>
                 <input type="number" class="form-control" id="tel" placeholder="Digite o telefone" name="tel">
             </div>
 
-
+            <!-- Formulario da consulta -->
             <h5 class="mt-5">Dados da consulta</h5>
             <div class="col-md-6">
                 <label for="exp">Especialidade:</label>
                 <input type="text" class="form-control" id="exp" placeholder="Digite a expecialidade" name="exp">
             </div>
+
             <div class="col-md-6">
                 <label for="dataConsulta">Data e Hora:</label>
                 <input type="datetime-local" class="form-control" id="dataConsulta" placeholder="Selecione Data e Hora da consulta" name="dataConsulta">
             </div>
+
             <div class="mt-3">
                 <label for="alergy">Alergias a medicamentos:</label>
                 <input type="text" class="form-control" id="alergy" placeholder="Digite medicamentos que possui alergia" name="alergy">
             </div>
+
             <div class="mt-3">
                 <label for="info">Informações adicionais:</label>
                 <input type="text" class="form-control" id="info" placeholder="Digite outras informações pertinentes" name="info">
             </div>
+
             <div class="col-md-6">
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
