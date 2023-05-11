@@ -9,25 +9,39 @@
   </head>
   
   <body>
+
     <div class="container-fluid p-5 bg-dark text-white text-center">
-        <h3>Aula 7 - Resultado</h3>
+      <h3>Aula 7 - Resultado</h3>
+    </div>
+    <div class="container mt-5">
+      <div class="row g-3 p-2">
+      <p>Olá, {{dados.nome}}, Seus dados estão dorretos?</p>
+      </div>
+
+      <table class="table table-striped table-bordered g-3 p-2">
+        <thead>
+          <tr>
+            <th>Nome completo</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Mensagem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{dados.nome}}</td>
+            <td>{{dados.email}}</td>
+            <td>{{dados.tel}}</td>
+            <td>{{dados.message}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <form action="/form">
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-primary">Preencher novamente</button>
+        </div>
+      </form>
     </div>
 
-    <div class="row g-3 p-5">
-        <p>Olá, {{dados.nome}}</p>
-        <p>Seus dados estão dorretos?</p>
-    </div>
-    <div>
-        <p>nome: {{dados.nome}},</p>
-        <p>email: {{dados.email}},</p>
-        <p>tel: {{dados.tel}},</p>
-        <p>mes: {{dados.message}}</p>
-    </div>
-    <div class="col-md-6">
-      <a class="btn btn-primary" role="button">Sim</a>
-    </div>
-    <div class="col-md-6">
-        <a class="btn btn-primary" role="button">Nao</a>
-      </div>
   </body>
 </html>

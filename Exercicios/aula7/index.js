@@ -2,6 +2,7 @@ var express = require('express')
 var mustacheExpress = require('mustache-express')
 var bodyParser = require('body-parser')
 var app = express()
+var dados
 
 app.engine('html', mustacheExpress())
 app.set('view engine', 'html')
@@ -17,12 +18,14 @@ app.get('/form', function(req, res){
     res.render('form.html')
 })
 
-app.post('/result', function(req, res){
-    let dados = req.body
-    res.render('/result.html', {dados})
+app.get('/result', function(req, res){
+    res.render('result.html', {dados})
 })
 
-app.get('resultado')
+app.post('/register', function(req, res){
+    dados = req.body
+    res.redirect('/result')
+})
 
 const app_port = 8000
 app.listen(app_port, function(){
