@@ -34,8 +34,8 @@ app.get('/result', function(req, res){
 
 app.post('/register', function(req, res){
     dados = req.body     
-    // Iteração pelo objeto
     erro = false
+    // Iteração pelo objeto
     for (const campo in dados) {
         if (dados[campo] == '') {
             erro = true
