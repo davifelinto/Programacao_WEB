@@ -9,6 +9,7 @@ var app = express()
 var erro = false
 var dados = {}
 var motivo = ''
+// var motivo = []
 
 app.engine('html', mustacheExpress())
 app.set('view engine', 'html')
@@ -22,7 +23,7 @@ app.get('', function(req, res){
 
 app.get('/form', function(req, res){
     if(erro){
-        res.render('newForm.html', {erro, motivo})
+        res.render('newForm.html', {erro, motivo, dados})
     }else{
         res.render('newForm.html')
     }
@@ -40,6 +41,7 @@ app.post('/register', function(req, res){
         if (dados[campo] == '') {
             erro = true
             motivo = campo
+            // motivo.push({campo: campo})
             break
         }
     }

@@ -29,32 +29,32 @@
             <h5 class="mt-5">Dados pessoas</h5>
             <div class="col-md-6">
                 <label for="nome">Nome completo:</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome" name="nome">
+                <input type="text" class="form-control" id="nome" placeholder="Digite o Nome" name="nome" value="{{dados.nome}}">
             </div>
 
             <div class="col-md-2">
-                <label for="cpf">CPF:</label>
-                <input type="number" class="form-control" id="cpf" placeholder="Digite o cpf" name="cpf">
+                <label for="CPF">CPF:</label>
+                <input type="number" class="form-control" id="CPF" placeholder="Digite o CPF" name="CPF" value="{{dados.CPF}}">
             </div>
 
             <div class="col-md-4">
-                <label for="nasc">Data de nascimento:</label>
-                <input type="date" class="form-control" id="nasc" placeholder="Digite a data de nascimento" name="nasc">
+                <label for="dataNascimento">Data de nascimento:</label>
+                <input type="date" class="form-control" id="dataNascimento" placeholder="Digite a data de nascimento" name="dataNascimento" value="{{dados.dataNascimento}}">
             </div>
 
             <div class="col-md-4">
-                <label for="cep">CEP:</label>
-                <input type="number" class="form-control" id="cep" placeholder="Digite o CEP" name="cep">
+                <label for="CEP">CEP:</label>
+                <input type="number" class="form-control" id="CEP" placeholder="Digite o CEP" name="CEP" value="{{dados.CEP}}">
             </div>
 
             <div class="col-md-4">
                 <label for="endereco">Endereço:</label>
-                <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço" name="endereco">
+                <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço" name="endereco" value="{{dados.endereco}}">
             </div>
 
             <div class="col-md-4">
-                <label for="uf" class="form-label">UF:</label>
-                <select id="uf" class="form-select">
+                <label for="UF" class="form-label">UF:</label>
+                <select id="UF" class="form-select">
                     <option value='' selected disabled>Escolha...</option>
                     <option>AC</option>
                     <option>AL</option>
@@ -62,6 +62,7 @@
                     <option>AM</option>
                     <option>BA</option>
                     <option>CE</option>
+                    <option>DF</option>
                     <option>ES</option>
                     <option>GO</option>
                     <option>MA</option>
@@ -82,40 +83,39 @@
                     <option>SP</option>
                     <option>SE</option>
                     <option>TO</option>
-                    <option>DF</option>
                 </select>
             </div>
 
             <div class="col-md-6">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Digite o email" name="email">
+                <label for="email">E-mail:</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite o e-mail" name="email" value="{{dados.email}}">
             </div>
 
             <div class="col-md-6">
-                <label for="tel">Telefone:</label>
-                <input type="number" class="form-control" id="tel" placeholder="Digite o telefone" name="tel">
+                <label for="telefone">Telefone:</label>
+                <input type="number" class="form-control" id="telefone" placeholder="Digite o telefone" name="telefone" value="{{dados.telefone}}">
             </div>
 
             <!-- --------------------------------- Dados da consulta --------------------------------- -->
             <h5 class="mt-5">Dados da consulta</h5>
             <div class="col-md-6">
-                <label for="esp">Especialidade:</label>
-                <input type="text" class="form-control" id="esp" placeholder="Digite a expecialidade" name="esp">
+                <label for="especialidade">Especialidade:</label>
+                <input type="text" class="form-control" id="especialidade" placeholder="Digite a expecialidade" name="especialidade" value="{{dados.especialidade}}">
             </div>
 
             <div class="col-md-6">
                 <label for="dataConsulta">Data e Hora:</label>
-                <input type="datetime-local" class="form-control" id="dataConsulta" placeholder="Selecione Data e Hora da consulta" name="dataConsulta">
+                <input type="datetime-local" class="form-control" id="dataConsulta" placeholder="Selecione Data e Hora da consulta" name="dataConsulta" value="{{dados.dataConsulta}}">
             </div>
 
             <div class="mt-3">
-                <label for="alerg">Alergias a medicamentos:</label>
-                <input type="text" class="form-control" id="alerg" placeholder="Digite medicamentos que possui alergia" name="alerg">
+                <label for="alergias">Alergias a medicamentos:</label>
+                <input type="text" class="form-control" id="alergias" placeholder="Digite medicamentos que possui alergia" name="alergias" value="{{dados.alergias}}">
             </div>
 
             <div class="mt-3">
-                <label for="info">Informações adicionais:</label>
-                <input type="text" class="form-control" id="info" placeholder="Descreva o motivo da consulta" name="info">
+                <label for="informacoes">Informações adicionais:</label>
+                <input type="text" class="form-control" id="informacoes" placeholder="Descreva o motivo da consulta" name="informacoes" value="{{dados.informacoes}}">
             </div>
 
             <div class="col-md-6">
