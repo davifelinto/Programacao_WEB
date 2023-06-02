@@ -27,7 +27,7 @@
         {{/sucesso}}
 
         <h1>Excluir cadastro de pessoa</h1>
-        {{#pessoa}}
+        {{#pessoaExcluida}}
         <div class="col-12">
             <table class="table table-striped">
                 <thead>
@@ -58,47 +58,21 @@
                 </tbody>
             </table>
         </div>
-        {{/pessoas}}
+        {{/pessoaExcluida}}
 
         <form method="post" action="/pessoa/excluir">
-
-            <input type="hidden" name="id" value="{{pessoa.id}}">
+            <p>Confirmar exclusão de registro</p>
             <div class="row">
                 <div class="col-3">
-                    <label class="form-label" for="nome">Nome</label>
-                    <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite o novo nome" value="{{pessoa.nome}}">
-                </div>
-                <div class="col-3">
-                    <label class="form-label" for="sobrenome">Sobrenome</label>
-                    <input class="form-control" type="text" id="sobrenome" name="sobrenome" placeholder="Digite o novo sobrenome" value="{{pessoa.sobrenome}}">
-                </div>
-                <div class="col-3">
-                    <label class="form-label" for="cpf">CPF</label>
-                    <input class="form-control" type="number" id="cpf" name="cpf" placeholder="Digite o novo CPF" value="{{pessoa.cpf}}">
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label" for="email">E-mail:</label>
-                    <input class="form-control" type="text" id="email" name="email" placeholder="Digite o novo E-mail" value="{{pessoa.email}}">
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label" for="telefone">Telefone:</label>
-                    <input class="form-control" type="text" id="telefone" name="telefone" placeholder="Digite o novo telefone" value="{{pessoa.telefone}}">
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label" for="altura">Altura:</label>
-                    <input class="form-control" type="number" step="0.01" id="altura" name="altura" placeholder="Digite a nova altura" value="{{pessoa.altura}}">
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label" for="peso">Peso:</label>
-                    <input class="form-control" type="number" step="0.01" id="peso" name="peso" placeholder="Digite o novo peso" value="{{pessoa.peso}}">
+                    <label class="form-label" for="id">Confirme a exclusão digitando o ID da pessoa excluida</label>
+                    <input class="form-control" type="number" id="id" name="id" placeholder="Digite o id">
                 </div>
             </div>
             <div class="d-grid mt-3">
-                <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+                <button type="submit" class="btn btn-primary btn-block">Confirmar</button>
             </div>
         </form>
     </div>
-
 </body>
 
 </html>

@@ -65,8 +65,40 @@ function editarPessoa(req, res) {
     .catch(function (erro) {
         res.render("pessoa/editar.html", {pessoa, erro})
     });
-
 }
+
+function excluirView(req, res){
+    let id = req.params.id
+    let pessoaExcluida
+    Pessoa.findByPk(id).then((pessoaExcluida)=>{
+        res.render("pessoa/excluir.html", {pessoaExcluida});
+    })
+}
+
+function excluirPessoa(req, res) {
+    let pessoa = {
+        nome: req.body.nome,
+        sobrenome: req.body.sobrenome,
+        cpf: req.body.cpf,
+        email: req.body.email,
+        telefone: req.body.telefone,
+        altura: req.body.altura,
+        peso: req.body.peso
+    }
+    Pessoa.destroy(
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    ).then(function (sucesso) {
+        res.render("pessoa/excluir.html", {sucesso});
+    })
+    .catch(function (erro) {
+        res.render("pessoa/excluir.html", {erro})
+    });
+}
+
 
 module.exports =  {
     cadastrarView,
@@ -74,4 +106,6 @@ module.exports =  {
     listarView,
     editarView,
     editarPessoa,
+    excluirView,
+    excluirPessoa
 };

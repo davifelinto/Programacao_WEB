@@ -11,4 +11,7 @@ router.get('/pessoa/listar', pessoaController.listarView);
 router.get('/pessoa/editar/:id', pessoaController.editarView);
 router.post('/pessoa/editar', pessoaController.editarPessoa);
 
+router.get('/pessoa/excluir/:id', pessoaController.excluirView);
+router.post('/pessoa/excluir', pessoaController.excluirPessoa);
+
 module.exports = router;
