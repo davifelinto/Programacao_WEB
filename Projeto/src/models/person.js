@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
- 
+const User = require('./user')
+
 const Person = database.define('person', {
     id: {
         type: Sequelize.INTEGER,
@@ -30,5 +31,7 @@ const Person = database.define('person', {
         type: Sequelize.INTEGER
     },
 })
- 
+
+User.belongsTo(Person) //person_id
+
 module.exports = Person;
