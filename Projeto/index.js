@@ -20,12 +20,14 @@ app.use(session({
 
 // Define as rotas da aplicação (declaradas na pasta /src/routes/)
 app.use('/', require('./src/routes/indexRoutes'));
-app.use('/', require('./src/routes/pessoaRoutes'));
-app.use('/', require('./src/routes/autenticacaoRoutes'));
+app.use('/', require('./src/routes/authRoutes'));
 
-db.sync(() => console.log(`Banco de dados conectado`));
+app.use('/', require('./src/routes/personRoutes'));
+app.use('/', require('./src/routes/accountRoutes'));
+
+db.sync(() => console.log(`Database connected`));
 
 const app_port = 8000
 app.listen(app_port, function () {
-    console.log('app rodando na porta ' + app_port)
+    console.log('app running on port ' + app_port)
 })
