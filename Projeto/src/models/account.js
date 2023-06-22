@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
+const Transaction = require('./transaction')
  
 const Account = database.define('account', {
     id: {
@@ -8,30 +9,27 @@ const Account = database.define('account', {
         allowNull: false,
         primaryKey: true
     },
-    // CHECAR COMO FAZ A RELAÇÃO DE CHAVE EXTRANGEIRA
-    // user_id: {
-    //     // type: Sequelize.INTEGER,
-    //     // allowNull: false,
-    //     // foreignKey: true
-    //     references: {
-    //         model: 'user',
-    //         key: 'id'
-    //     }
-    // },
     number: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         allowNull: false,
         unique: true
     },
     name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
     },
     open_date: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATE,
+        allowNull: false
     },
     balance: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.DOUBLE,
+        allowNull: false
     }
 })
- 
+
+// Relacionamento 1-n
+Account.hasMany(Transaction)
+Transaction.belongsTo(Account) //account_id
+
 module.exports = Account;

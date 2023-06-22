@@ -1,5 +1,6 @@
-const Sequelize = require('sequelize');
-const database = require('../db');
+const Sequelize = require('sequelize')
+const database = require('../db')
+const Account = require('./account')
  
 const User = database.define('user', {
     id: {
@@ -8,22 +9,16 @@ const User = database.define('user', {
         allowNull: false,
         primaryKey: true
     },
-    // CHECAR COMO FAZ A RELAÇÃO DE CHAVE EXTRANGEIRA
-    // person_id: {
-    //     // type: Sequelize.INTEGER,
-    //     // allowNull: false,
-    //     // foreignKey: true
-    //     references: {
-    //         model: 'person',
-    //         key: 'id'
-    //     }
-    // },
     email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(32)
     },
     password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(32)
     },
 })
- 
+
+// Relacionamento 1-n
+User.hasMany(Account)
+Account.belongsTo(User) //user_id
+
 module.exports = User;

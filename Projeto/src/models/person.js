@@ -10,11 +10,11 @@ const Person = database.define('person', {
         primaryKey: true
     },
     name: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(64),
         allowNull: false
     },
     cpf: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         allowNull: false,
         unique: true
     },
@@ -22,16 +22,18 @@ const Person = database.define('person', {
         type: Sequelize.DATEONLY
     },
     phone: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
     },
     address: {
         type: Sequelize.STRING
     },
     cep: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
     },
 })
 
+// Relacionamento 1-1
+Person.hasOne(User)
 User.belongsTo(Person) //person_id
 
 module.exports = Person;

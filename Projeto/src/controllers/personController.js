@@ -1,4 +1,4 @@
-const Pearson = require('../models/person')
+const Person = require('../models/person')
 
 function createView(req, res){
     res.render("person/create.html", {});
@@ -24,73 +24,70 @@ function createPerson(req, res){
 }
 
 function readView(req, res){
+    let success_delete = req.query.success_delete
+    let error_delete = req.query.error_delete
+
     Person.findAll().then((people)=>{
-        res.render("pearson/read.html", {people});
+        res.render("person/read.html", {people,success_delete,error_delete});
     }).catch((err) => {
         console.log(err)
         let error = err
-        res.render("pearson/read.html", {error});
+        res.render("person/read.html", {error});
     })
 }
 
 function updateView(req, res){
     let id = req.params.id
-    let pearson;
-    Pearson.findByPk(id).then(function(pearson){
-        res.render("pearson/update.html", {pearson});
+    let person;
+    Person.findByPk(id).then(function(person){
+        res.render("person/update.html", {person});
     })
 }
 
-function updatePearson(req, res) {
-    let pearson = {
+function updatePerson(req, res) {
+    let person = {
         name: req.body.name,
-        sobrename: req.body.sobrename,
         cpf: req.body.cpf,
+        birth_date: req.body.birth_date,
+        phone: req.body.phone,
+        address: req.body.address,
+        cep: req.body.cep
     }
-    Pearson.update(
-      pearson,
+    Person.update(
+      person,
       {
         where: {
           id: req.body.id,
         },
       }
-    ).then(function (sucesso) {
-        res.render("pearson/update.html", {pearson, sucesso});
+    ).then(function (success) {
+        res.render("person/update.html", {person, success});
     })
     .catch(function (error) {
-        res.render("pearson/update.html", {pearson, error})
+        res.render("person/update.html", {person, error})
     });
 }
 
-function deleteView(req, res){
-    let id = req.params.id
-    let pearsonExcluida
-    Pearson.findByPk(id).then((pearsonExcluida)=>{
-        res.render("pearson/delete.html", {pearsonExcluida});
-    })
-}
+// function deleteView(req, res){
+//     let id = req.params.id
+//     let personDeleted
+//     Person.findByPk(id).then((personDeleted)=>{
+//         res.render("person/delete.html", {personDeleted});
+//     })
+// }
 
-function deletePearson(req, res) {
-    let pearson = {
-        name: req.body.name,
-        sobrename: req.body.sobrename,
-        cpf: req.body.cpf,
-        email: req.body.email,
-        phone: req.body.phone,
-        altura: req.body.altura,
-        peso: req.body.peso
-    }
-    Pearson.destroy(
+function deletePerson(req, res) {
+    Person.destroy(
       {
         where: {
           id: req.body.id,
         },
       }
-    ).then(function (sucesso) {
-        res.render("pearson/delete.html", {sucesso});
+    ).then(function (success) {
+        res.render("person/delete.html", {success});
     })
     .catch(function (error) {
-        res.render("pearson/delete.html", {error})
+        res.render("person/delete.html", {error})
     });
 }
 
@@ -99,7 +96,7 @@ module.exports =  {
     createPerson,
     readView,
     updateView,
-    updatePearson,
-    deleteView,
-    deletePearson
+    updatePerson,
+    // deleteView,
+    deletePerson
 };
