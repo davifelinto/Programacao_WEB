@@ -1,44 +1,44 @@
-const Pessoa = require('../models/pessoa')
+const Person = require('../models/person')
 
 function loginView(req, res){
-    pessoa = req.session.pessoa
-    res.render("login.html", {pessoa});
+    person = req.session.person
+    res.render("login.html", {person});
 }
 
-async function autenticar(req, res) {
-    const pessoa = await Pessoa.findOne({ where: { nome: req.body.nome, cpf: req.body.cpf} });
-    if (pessoa !== null) {    
-        req.session.autorizado = true
-        req.session.pessoa = pessoa
+async function authenticate(req, res) {
+    const person = await Person.findOne({ where: { name: req.body.name, cpf: req.body.cpf} });
+    if (person !== null) {    
+        req.session.authorized = true
+        req.session.person = person
         res.redirect('/')
     } else {
-        let erro_autenticacao = true
-        res.render('login.html', {erro_autenticacao})
+        let authentication_error = true
+        res.render('login.html', {authentication_error})
     }
 }
 
-function sair(req, res) {
+function exit(req, res) {
     req.session.destroy(function(err) {
-        console.log('Usuário desautorizado')
+        console.log('User unauthorized')
      })
-     let sucesso_saida = true
-     res.render('login.html', {sucesso_saida})
+     let exit_success = true
+     res.render('login.html', {exit_success})
 }
 
-function verificarAutenticacao(req, res, next) {
-    if (req.session.autorizado){
-        console.log('Usuário autorizado')
+function verifiyAuthentication(req, res, next) {
+    if (req.session.authorized){
+        console.log('User authorized')
         next()
     }
     else{
-        console.log('Usuário NÃO autorizado')
+        console.log('User NOT authorized')
         res.redirect('/login')
     }
 }
 
 module.exports =  {
     loginView,
-    autenticar,
-    verificarAutenticacao,
-    sair
+    authenticate,
+    verifiyAuthentication,
+    exit
 };

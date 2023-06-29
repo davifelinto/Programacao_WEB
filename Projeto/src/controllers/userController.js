@@ -15,7 +15,7 @@ function createUser(req, res){
     }).catch((err) => {
         console.log(err)
         let error = err
-        res.render("user/dreate.html", {error});
+        res.render("user/create.html", {error});
     })
 }
 
@@ -35,7 +35,7 @@ function readView(req, res){
 function updateView(req, res){
     let id = req.params.id
     let user
-    User.findByPk(id).then(function(person){
+    User.findByPk(id).then(function(user){
         res.render("user/update.html", {user})
     })
 }
@@ -59,10 +59,26 @@ function updateUser(req, res){
     })
 }
 
+function deleteUser(req, res) {
+    User.destroy(
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    ).then(function (success) {
+        res.render("user/delete.html", {success});
+    })
+    .catch(function (error) {
+        res.render("user/delete.html", {error})
+    });
+}
+
 module.exports =  {
     createView,
     createUser,
     readView,
     updateView,
-    updateUser
+    updateUser,
+    deleteUser
 };

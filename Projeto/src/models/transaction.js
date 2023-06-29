@@ -8,7 +8,7 @@ const Transaction = database.define('transaction', {
         allowNull: false,
         primaryKey: true
     },
-    tipo: {
+    type: {
         type: Sequelize.STRING(1),
         allowNull: false
     },
